@@ -1,7 +1,7 @@
 {
   "name": "base-element",
   "version": "1.0.0",
-  "description": "",
+  "description": "A base element authoring library for creating standalone virtual DOM based elements.",
   "main": "index.js",
   "scripts": {
     "test": "standard",

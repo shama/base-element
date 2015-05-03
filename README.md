@@ -1,5 +1,5 @@
 # base-element
-A base element library for building standalone virtual DOM based elements.
+A base element authoring library for creating standalone virtual DOM based elements.
 
 View an example using `base-element` with:
 * [React](https://github.com/shama/base-element/blob/master/examples/react.js)
