@@ -1,6 +1,7 @@
 var List = require('./list.js')
 var React = require('react')
 
+// Create a React component that wraps the List
 var XList = React.createClass({
   componentDidMount: function () {
     var list = new List(React.findDOMNode(this))
