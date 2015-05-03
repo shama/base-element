@@ -7,7 +7,7 @@ View an example using `base-element` with:
 * [Web Component](https://github.com/shama/base-element/blob/master/examples/webcomponent.js)
 * [or just standalone](https://github.com/shama/base-element/blob/master/examples/standalone.js)
 
-## example
+## example usage
 Create a generic JavaScript "class" that inherits BaseElement:
 
 ```js
