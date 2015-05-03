@@ -6,7 +6,7 @@ View an example using `base-element` with:
 * [React](https://github.com/shama/base-element/blob/master/examples/react.js)
 * [Ember](https://github.com/shama/base-element/blob/master/examples/ember.js)
 * [Web Component](https://github.com/shama/base-element/blob/master/examples/webcomponent.js)
-* [standalone w/o any other library]((https://github.com/shama/base-element/blob/master/examples/standalone.js).
+* [standalone w/o any other library](https://github.com/shama/base-element/blob/master/examples/standalone.js)
 
 ## example
 Create a generic JavaScript "class" that inherits BaseElement:
