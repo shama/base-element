@@ -1,7 +1,7 @@
 # base-element
 A base element library for building standalone virtual DOM based elements.
 
-View examples using an element with:
+View an example using `base-element` with:
 * [virtual-dom](https://github.com/shama/base-element/blob/master/examples/virtual-dom.js)
 * [React](https://github.com/shama/base-element/blob/master/examples/react.js)
 * [Ember](https://github.com/shama/base-element/blob/master/examples/ember.js)
