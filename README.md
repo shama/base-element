@@ -95,7 +95,14 @@ Button.prototype.render = function (data) {
 
 ### `element.html(tag, options, value)`
 A convenience wrapper for creating virtual-hyperscript nodes, i.e.:
-`var h = require('virtual-dom/h')`.
+
+```js
+var h = require('virtual-dom/h')
+var vtree = h('div', 'Testing')
+
+// is the same as
+var vtree = this.html('div', 'Testing')
+```
 
 ### `element.element`
 The root DOM node the virtual tree resides on.
