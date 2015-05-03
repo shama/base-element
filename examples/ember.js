@@ -1,0 +1,30 @@
+/*eslint-disable */
+
+var List = require('./list.js')
+
+var MyListComponent = Ember.Component.extend({
+  data: ['one', 'two', 'three'],
+  init: function () {
+    this._super()
+  },
+  didInsertElement: function () {
+    this._super()
+
+    var data = this.get('data')
+
+    var list = new List(this.element)
+    list.render(data)
+
+    // When item clicked
+    list.on('clicked', function (item) {
+      window.alert('You clicked ' + item.innerHTML)
+    })
+
+    // When item added
+    list.on('added', function () {
+      data.push(String(Math.random() * 9999))
+      list.render(data)
+    })
+
+  }
+})
