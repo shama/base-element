@@ -26,7 +26,7 @@ Bear.prototype.render = function (typeOfBear) {
 ```
 
 ## data down, events up
-Virtual DOMs work best (in the opinion of myself and many) when data goes down
+DOMs work best (in the opinion of myself and many) when data goes down
 and event (or actions) go up.
 
 A simple example is a button element that changes when clicked. **How** it
