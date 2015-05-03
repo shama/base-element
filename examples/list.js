@@ -2,8 +2,8 @@ module.exports = List
 
 var BaseElement = require('../index.js')
 
-function List () {
-  BaseElement.call(this)
+function List (el) {
+  BaseElement.call(this, el)
 }
 List.prototype = Object.create(BaseElement.prototype)
 
