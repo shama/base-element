@@ -81,6 +81,18 @@ Register an event listener for a given name:
 element.on('clicked', function (params) {})
 ```
 
+### `element.super()`
+This method can be called within any inherited method. It will call the parent's
+class of the same name.
+
+```js
+Button.prototype.render = function (data) {
+  var tree = this.html('button')
+  // Calls the render method on BaseElement
+  return this.super(vtree)
+}
+```
+
 ### `element.element`
 The root DOM node the virtual tree resides on.
 
