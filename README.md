@@ -93,6 +93,10 @@ Button.prototype.render = function (data) {
 }
 ```
 
+### `element.html(tag, options, value)`
+A convenience wrapper for creating virtual-hyperscript nodes, i.e.:
+`var h = require('virtual-dom/h')`.
+
 ### `element.element`
 The root DOM node the virtual tree resides on.
 
