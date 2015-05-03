@@ -1,3 +1,4 @@
+/*global HTMLElement:false*/
 var List = require('./list.js')
 
 var data = ['one', 'two', 'three']
