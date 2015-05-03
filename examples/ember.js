@@ -4,9 +4,6 @@ var List = require('./list.js')
 
 var MyListComponent = Ember.Component.extend({
   data: ['one', 'two', 'three'],
-  init: function () {
-    this._super()
-  },
   didInsertElement: function () {
     this._super()
 
