@@ -1,7 +1,7 @@
 # base-element
 An element authoring library for creating standalone and performant elements.
 
-View an example using `base-element` with:
+View [this example List element](https://github.com/shama/base-element/blob/master/examples/list.js) in use with:
 * [React](https://github.com/shama/base-element/blob/master/examples/react.js)
 * [Ember](https://github.com/shama/base-element/blob/master/examples/ember.js)
 * [Web Component](https://github.com/shama/base-element/blob/master/examples/webcomponent.js)
