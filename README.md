@@ -51,8 +51,10 @@ Button.prototype = Object.create(BaseElement.prototype)
 
 Button.prototype.render = function (label) {
   var self = this
+  // The "label" data is coming down
   return this.super(this.html('button', {
     onclick: function (event) {
+      // We send the "clicked" event up
       self.send('clicked', event.target)
     }
   }, label))
