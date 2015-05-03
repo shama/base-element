@@ -65,7 +65,7 @@ button.on('click', function (button) {
 
 ## api
 
-### `var element = new BaseElement(attachTo)`
+### `var element = new BaseElement([attachTo])`
 `attachTo` is a DOM element you want to append to. Defaults to `document.body`.
 
 ### `element.render(vtree)`
@@ -81,7 +81,7 @@ Register an event listener for a given name:
 element.on('clicked', function (params) {})
 ```
 
-### `element.super()`
+### `element.super([params])`
 This method can be called within any inherited method. It will call the parent's
 class of the same name.
 
@@ -93,7 +93,7 @@ Button.prototype.render = function (data) {
 }
 ```
 
-### `element.html(tag, options, value)`
+### `element.html(tag[, options], value)`
 A convenience wrapper for creating virtual-hyperscript nodes, i.e.:
 
 ```js
