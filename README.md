@@ -2,11 +2,10 @@
 A base element library for building standalone virtual DOM based elements.
 
 View an example using `base-element` with:
-* [virtual-dom](https://github.com/shama/base-element/blob/master/examples/virtual-dom.js)
 * [React](https://github.com/shama/base-element/blob/master/examples/react.js)
 * [Ember](https://github.com/shama/base-element/blob/master/examples/ember.js)
 * [Web Component](https://github.com/shama/base-element/blob/master/examples/webcomponent.js)
-* [standalone w/o any other library](https://github.com/shama/base-element/blob/master/examples/standalone.js)
+* [or just standalone](https://github.com/shama/base-element/blob/master/examples/standalone.js)
 
 ## example
 Create a generic JavaScript "class" that inherits BaseElement:
