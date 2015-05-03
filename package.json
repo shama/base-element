@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "standard",
-    "start": "budo examples/standalone.js"
+    "start": "budo examples/standalone.js",
+    "build": "browserify index.js --standalone BaseElement -o dist/base-element.js"
   },
   "author": "Kyle Robinson Young <kyle@dontkry.com> (http://dontkry.com)",
   "license": "MIT",
@@ -14,6 +15,7 @@
     "url": "https://github.com/shama/base-element.git"
   },
   "devDependencies": {
+    "browserify": "^10.0.0",
     "budo": "^4.0.0",
     "standard": "^3.7.2"
   },

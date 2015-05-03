@@ -71,6 +71,19 @@ button.on('clicked', function (button) {
 })
 ```
 
+## install
+
+### npm with browserify, webpack, etc
+
+* `npm install base-element`
+* `var BaseElement = require('base-element')`
+
+### standalone
+
+* copy/download/etc [dist/base-element.js](https://github.com/shama/base-element/blob/master/dist/base-element.js)
+* `<script src="base-element.js"></script>`
+* `<script>var element = new BaseElement()</script>`
+
 ## api
 
 ### `var element = new BaseElement([attachTo])`
