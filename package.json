@@ -1,0 +1,23 @@
+{
+  "name": "base-element",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard",
+    "start": "budo examples/virtual-dom.js"
+  },
+  "author": "Kyle Robinson Young <kyle@dontkry.com> (http://dontkry.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shama/base-element.git"
+  },
+  "devDependencies": {
+    "budo": "^4.0.0",
+    "standard": "^3.7.2"
+  },
+  "dependencies": {
+    "virtual-dom": "^2.0.1"
+  }
+}
