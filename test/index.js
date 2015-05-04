@@ -1,4 +1,4 @@
-var help = require('./helpers.js')()
+var help = require('browser-test-helpers')()
 var test = require('tape')
 
 var Button = require('./fixtures/button.js')
@@ -11,5 +11,5 @@ test('simple down and up', function (t) {
     t.end()
   })
   button.render(expected)
-  help.click(button)
+  help.click(button.element)
 })

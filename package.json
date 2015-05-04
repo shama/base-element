@@ -31,6 +31,7 @@
     "browser"
   ],
   "devDependencies": {
+    "browser-test-helpers": "^1.0.0",
     "browserify": "^10.0.0",
     "budo": "^4.0.0",
     "standard": "^3.7.2",
