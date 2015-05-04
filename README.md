@@ -18,6 +18,7 @@ function Bear () {
 }
 Bear.prototype = Object.create(BaseElement.prototype)
 // Or inherits(Bear, BaseElement)
+// Or class Bear extends BaseElement
 ```
 
 Then build your elements:
@@ -48,6 +49,7 @@ function Button () {
 }
 Button.prototype = Object.create(BaseElement.prototype)
 // Or inherits(Button, BaseElement)
+// Or class Button extends BaseElement
 
 Button.prototype.render = function (label) {
   var self = this
