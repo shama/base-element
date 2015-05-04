@@ -9,7 +9,7 @@ function BaseElement (el) {
   if (!(this instanceof BaseElement)) return BaseElement(el)
   this.vtree = null
   this.element = null
-  this.__appendTo__ = el || document.body
+  this.__appendTo__ = (typeof el === 'undefined' || el === null) ? document.body : el
   this.__events__ = Object.create(null)
   // Decorate _name to methods for super()
   for (var method in this) {
@@ -27,13 +27,15 @@ BaseElement.prototype.render = function (vtree) {
   if (!this.vtree) {
     this.vtree = vtree
     this.element = createElement(this.vtree)
-    this.__appendTo__.appendChild(this.element)
+    if (this.__appendTo__ !== false) {
+      this.__appendTo__.appendChild(this.element)
+    }
   } else {
     var patches = diff(this.vtree, vtree)
     this.element = patch(this.element, patches)
     this.vtree = vtree
   }
-  return this
+  return this.vtree
 }
 
 BaseElement.prototype.send = function (name) {

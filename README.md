@@ -5,6 +5,7 @@ View [this example List element](https://github.com/shama/base-element/blob/mast
 * [React](https://github.com/shama/base-element/blob/master/examples/react.js)
 * [Ember](https://github.com/shama/base-element/blob/master/examples/ember.js)
 * [Web Component](https://github.com/shama/base-element/blob/master/examples/webcomponent.js)
+* [virtual-dom](https://github.com/shama/base-element/blob/master/examples/virtual-dom.js)
 * [or just standalone](https://github.com/shama/base-element/blob/master/examples/standalone.js)
 
 ## example usage
@@ -91,8 +92,12 @@ button.on('clicked', function (button) {
 ### `var element = new BaseElement([attachTo])`
 `attachTo` is a DOM element you want to append to. Defaults to `document.body`.
 
+If you pass in `false` then the element will not automatically append itself to
+a parent node. This is useful if you plan on handling the rendering of the
+virtual tree on your own.
+
 ### `element.render(vtree)`
-Renders your virtual DOM tree to the DOM element.
+Renders your virtual DOM tree to the DOM element and returns the updated `vtree`.
 
 ### `element.send(name[, params])`
 Sends an event up with a given `name` and `params`.
