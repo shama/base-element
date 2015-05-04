@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "standard",
+    "ci": "zuul --local 9966 -- test/index.js",
     "start": "budo examples/standalone.js",
     "build": "browserify index.js --standalone BaseElement -o dist/base-element.js"
   },
@@ -17,10 +18,25 @@
   "files": [
     "index.js"
   ],
+  "standard": {
+    "ignore": [
+      "**/dist/**"
+    ]
+  },
+  "keywords": [
+    "virtual",
+    "dom",
+    "element",
+    "diff",
+    "browser"
+  ],
   "devDependencies": {
     "browserify": "^10.0.0",
     "budo": "^4.0.0",
-    "standard": "^3.7.2"
+    "standard": "^3.7.2",
+    "tap-spec": "^3.0.0",
+    "tape": "^4.0.0",
+    "zuul": "^3.0.0"
   },
   "dependencies": {
     "virtual-dom": "^2.0.1"
