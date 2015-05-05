@@ -62,5 +62,5 @@ let slides = new Slides()
 slides.render([
   { name: 'intro', content: 'Intro...' },
   { name: 'examples', content: 'Examples...' },
-  { name: 'outro', content: 'Outro...' },
+  { name: 'outro', content: 'Outro...' }
 ])
