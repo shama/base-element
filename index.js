@@ -1,5 +1,6 @@
 module.exports = BaseElement
 
+var document = require('global/document')
 var h = require('virtual-dom/h')
 var diff = require('virtual-dom/diff')
 var patch = require('virtual-dom/patch')
@@ -19,7 +20,6 @@ BaseElement.prototype.html = function () {
 }
 
 BaseElement.prototype.afterRender = function (vtree) {
-  // Detect signature of the top most call
   if (this.hasOwnProperty('__BaseElementSig__')) {
     return BaseElement.prototype.render.call(this, vtree)
   }
