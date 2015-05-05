@@ -1,8 +1,8 @@
 # base-element
 An element authoring library for creating standalone and performant elements.
 
-[![build status][https://secure.travis-ci.org/shama/base-element.svg]][https://travis-ci.org/shama/base-element]
-[![NPM version][https://badge.fury.io/js/base-element.svg]][https://badge.fury.io/js/base-element]
+[![build status](https://secure.travis-ci.org/shama/base-element.svg)](https://travis-ci.org/shama/base-element)
+[![NPM version](https://badge.fury.io/js/base-element.svg)](https://badge.fury.io/js/base-element)
 [![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges)
 
 View [this example List element](https://github.com/shama/base-element/blob/master/examples/list.js) in use with:
