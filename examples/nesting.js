@@ -10,7 +10,7 @@ Bear.prototype.render = function (items) {
   var vtree = items.map(function (item) {
     return self.html('li.bear', item)
   })
-  return this.super(vtree)
+  return this.rendered(vtree)
 }
 
 // Second Grizzly extends Bear
@@ -25,7 +25,7 @@ Grizzly.prototype.render = function (data) {
     bears,
     this.html('li', 'Bottom'),
   ])
-  return this.super(vtree)
+  return this.rendered(vtree)
 }
 
 // Third App extends Grizzly
@@ -36,7 +36,7 @@ App.prototype = Object.create(Grizzly.prototype)
 App.prototype.render = function (data) {
   var middle = Grizzly.prototype.render(data)
   var vtree = this.html('div.app', [data.heading, middle])
-  return this.super(vtree)
+  return this.rendered(vtree)
 }
 
 // The end user only cares about App

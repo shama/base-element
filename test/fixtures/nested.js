@@ -9,7 +9,7 @@ Bottom.prototype = Object.create(BaseElement.prototype)
 
 Bottom.prototype.render = function (data) {
   var vtree = this.html('li.bottom', data)
-  return this.super(vtree)
+  return this.rendered(vtree)
 }
 
 function Middle (el) {
@@ -20,7 +20,7 @@ Middle.prototype = Object.create(Bottom.prototype)
 Middle.prototype.render = function (data) {
   var bottom = Bottom.prototype.render(data)
   var vtree = this.html('ul.middle', bottom)
-  return this.super(vtree)
+  return this.rendered(vtree)
 }
 
 function Top (el) {
@@ -31,5 +31,5 @@ Top.prototype = Object.create(Middle.prototype)
 Top.prototype.render = function (data) {
   var middle = Middle.prototype.render(data)
   var vtree = this.html('div.top', middle)
-  return this.super(vtree)
+  return this.rendered(vtree)
 }

@@ -30,8 +30,8 @@ Then build your elements:
 Bear.prototype.render = function (typeOfBear) {
   // Create a virtual DOM tree
   var vtree = this.html('div.bear', ['Im a ' + typeOfBear + '!'])
-  // Call the super() render method with your vtree
-  return this.super(vtree)
+  // Call the rendered() render method with your vtree
+  return this.rendered(vtree)
 }
 ```
 
@@ -57,7 +57,7 @@ Button.prototype = Object.create(BaseElement.prototype)
 Button.prototype.render = function (label) {
   var self = this
   // The "label" data is coming down
-  return this.super(this.html('button', {
+  return this.rendered(this.html('button', {
     onclick: function (event) {
       // We send the "clicked" event up
       self.send('clicked', event.target)
@@ -111,15 +111,13 @@ Register an event listener for a given name:
 element.on('clicked', function (params) {})
 ```
 
-### `element.super([params])`
-This method can be called within any inherited method. It will call the parent's
-class of the same name.
+### `element.rendered([params])`
+This method needs to be called when returning a constructed virtual tree.
 
 ```js
 Button.prototype.render = function (data) {
   var tree = this.html('button')
-  // Calls the render method on BaseElement
-  return this.super(vtree)
+  return this.rendered(vtree)
 }
 ```
 

@@ -14,5 +14,5 @@ Button.prototype.render = function (label) {
       self.send('clicked', e.target)
     }
   }, label)
-  return this.super(vtree)
+  return this.rendered(vtree)
 }
