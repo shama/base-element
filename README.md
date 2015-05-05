@@ -103,9 +103,6 @@ If you pass in `false` then the element will not automatically append itself to
 a parent node. This is useful if you plan on handling the rendering of the
 virtual tree on your own.
 
-### `element.render(vtree)`
-Renders your virtual DOM tree to the DOM element and returns the updated `vtree`.
-
 ### `element.send(name[, params...])`
 Sends an event up with a given `name` and `params`.
 
