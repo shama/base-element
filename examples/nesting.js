@@ -23,7 +23,7 @@ Grizzly.prototype.render = function (data) {
   var vtree = this.html('ul.grizzly', [
     this.html('li', 'Top'),
     bears,
-    this.html('li', 'Bottom'),
+    this.html('li', 'Bottom')
   ])
   return this.afterRender(vtree)
 }
