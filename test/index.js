@@ -9,12 +9,11 @@ test('simple down and up', function (t) {
   var button = new Button()
   button.on('clicked', function (el) {
     t.equal(el.innerHTML, expected, 'data was sent down and event came up')
-    t.end()
+    tearDown(t.end)
   })
   button.render(expected)
   help.click(button.element)
 })
-
 
 test('renders nested elements', function (t) {
   t.plan(1)
@@ -22,7 +21,7 @@ test('renders nested elements', function (t) {
     var nested = new Nested(fixture)
     nested.render('test')
     t.equal(fixture.innerHTML, '<div class="top"><ul class="middle"><li class="bottom">test</li></ul></div>')
-    t.end()
+    tearDown(t.end)
   })
 })
 
