@@ -39,7 +39,7 @@ Bear.prototype.render = function (typeOfBear) {
 }
 ```
 
-## data down, events up
+### data down, events up
 DOMs work best (in the opinion of myself and many) when data goes down
 and event (or actions) go up.
 
@@ -80,6 +80,66 @@ button.on('clicked', function (button) {
   button.render('button label ' + Math.random())
 })
 ```
+
+### nested architecture
+Elements created using `base-element` are intended on being shared and extended
+by others. Each element should not require an additional library/framework to
+run it or be injected into it in order to be ran. Elements should be standalone.
+
+For example if I create an `input-box` element and published on npm:
+
+```js
+var BaseElement = require('base-element')
+function InputBox (el) {
+  BaseElement.call(this, el)
+}
+InputBox.prototype = Object.create(BaseElement.prototype)
+module.exports = InputBox
+
+InputBox.prototype.render = function (value) {
+  // Builds an <input value="{value}: />
+  return this.afterRender(this.html('input', {
+    onkeyup: function(e) {
+      // When keys are typed in it we send the value up
+      this.send('changed', e.target.value)
+    }.bind(this),
+    value: value || ''
+  }))
+}
+```
+
+Now yourself or another user can either consume your `input-box` or extend it
+to add their own functionality on top of yours, such as `email-input`:
+
+```js
+var InputBox = require('input-box')
+function EmailInput (el) {
+  InputBox.call(this, el)
+
+  // When we receive a "changed" event from InputBox, handle it here
+  this.on('changed', function (text) {
+    /* Perform some email validation on text here, then render() if we need an update */
+  })
+}
+EmailInput.prototype = Object.create(InputBox.prototype)
+module.exports = EmailInput
+
+EmailInput.prototype.render = function (data) {
+  data = data || {}
+  var vtree = this.html('div', [
+    // Put a <label>Enter your email</label> inside this <div>
+    this.html('label', data.label || 'Enter your email'),
+    // Call the InputBox's render
+    InputBox.prototype.render(data.value)
+  ])
+  // Return the virtual DOM tree
+  return this.afterRender(vtree)
+}
+```
+
+Both `input-box` and `email-input` can be ran on their own. When `input-box`
+updates over time, `email-input` can stay on a previous version until an upgrade
+can be made.
 
 ## install
 
