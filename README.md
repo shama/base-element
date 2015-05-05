@@ -5,6 +5,8 @@ An element authoring library for creating standalone and performant elements.
 [![NPM version](https://badge.fury.io/js/base-element.svg)](https://badge.fury.io/js/base-element)
 [![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges)
 
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/shama.svg)](https://saucelabs.com/u/shama)
+
 View [this example List element](https://github.com/shama/base-element/blob/master/examples/list.js) in use with:
 * [React](https://github.com/shama/base-element/blob/master/examples/react.js)
 * [Ember](https://github.com/shama/base-element/blob/master/examples/ember.js)
