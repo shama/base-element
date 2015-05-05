@@ -112,7 +112,9 @@ element.on('clicked', function (params) {})
 ```
 
 ### `element.afterRender([params])`
-This method needs to be called when returning a constructed virtual tree.
+This method needs to be called when returning a constructed virtual tree. It
+will detect if we are at the top of the render tree and perform the DOM diff
+and patching.
 
 ```js
 Button.prototype.render = function (data) {
