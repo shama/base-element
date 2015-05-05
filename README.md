@@ -76,7 +76,7 @@ changes to a random number:
 
 ```js
 var button = require('your-button')()
-button.on('clicked', function (button) {
+button.on('clicked', function (node) {
   button.render('button label ' + Math.random())
 })
 ```
