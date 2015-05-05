@@ -101,7 +101,7 @@ virtual tree on your own.
 ### `element.render(vtree)`
 Renders your virtual DOM tree to the DOM element and returns the updated `vtree`.
 
-### `element.send(name[, params])`
+### `element.send(name[, params...])`
 Sends an event up with a given `name` and `params`.
 
 ### `element.on(name, function)`
@@ -111,7 +111,7 @@ Register an event listener for a given name:
 element.on('clicked', function (params) {})
 ```
 
-### `element.afterRender([params])`
+### `element.afterRender([params...])`
 This method needs to be called when returning a constructed virtual tree. It
 will detect if we are at the top of the render tree and perform the DOM diff
 and patching.
