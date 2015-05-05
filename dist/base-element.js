@@ -10,31 +10,36 @@ function BaseElement (el) {
   if (!(this instanceof BaseElement)) return BaseElement(el)
   this.vtree = null
   this.element = null
-  this.__appendTo__ = el || document.body
+  this.__appendTo__ = (typeof el === 'undefined' || el === null) ? document.body : el
   this.__events__ = Object.create(null)
-  // Decorate _name to methods for super()
-  for (var method in this) {
-    if (typeof this[method] === 'function') {
-      this[method]._name = method
-    }
-  }
+  this.__BaseElementSig__ = true
 }
 
 BaseElement.prototype.html = function () {
   return h.apply(this, arguments)
 }
 
+BaseElement.prototype.afterRender = function (vtree) {
+  // Detect signature of the top most call
+  if (this.hasOwnProperty('__BaseElementSig__')) {
+    return BaseElement.prototype.render.call(this, vtree)
+  }
+  return vtree
+}
+
 BaseElement.prototype.render = function (vtree) {
   if (!this.vtree) {
     this.vtree = vtree
     this.element = createElement(this.vtree)
-    this.__appendTo__.appendChild(this.element)
+    if (this.__appendTo__ !== false) {
+      this.__appendTo__.appendChild(this.element)
+    }
   } else {
     var patches = diff(this.vtree, vtree)
     this.element = patch(this.element, patches)
     this.vtree = vtree
   }
-  return this
+  return this.vtree
 }
 
 BaseElement.prototype.send = function (name) {
@@ -52,24 +57,6 @@ BaseElement.prototype.on = function (name, cb) {
   if (!Array.isArray(this.__events__[name])) this.__events__[name] = []
   this.__events__[name].push(cb)
 }
-
-// Ability to call super() on methods
-Object.defineProperty(BaseElement.prototype, 'super', {
-  get: function get () {
-    var name = get.caller._name
-    var found = this[name] === get.caller
-    var proto = this
-    while (proto = Object.getPrototypeOf(proto)) { // eslint-disable-line
-      if (!proto[name]) {
-        break
-      } else if (proto[name] === get.caller) {
-        found = true
-      } else if (found) {
-        return proto[name]
-      }
-    }
-  }
-})
 
 },{"virtual-dom/create-element":3,"virtual-dom/diff":4,"virtual-dom/h":5,"virtual-dom/patch":13}],2:[function(require,module,exports){
 
