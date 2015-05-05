@@ -14,6 +14,10 @@ View [this example List element](https://github.com/shama/base-element/blob/mast
 * [virtual-dom](https://github.com/shama/base-element/blob/master/examples/virtual-dom.js)
 * [or just standalone](https://github.com/shama/base-element/blob/master/examples/standalone.js)
 
+Or other examples:
+* [with ES6](https://github.com/shama/base-element/blob/master/examples/es6.js)
+* [nested architecture](https://github.com/shama/base-element/blob/master/examples/nesting.js)
+
 ## example usage
 Create a generic JavaScript "class" that inherits BaseElement:
 
