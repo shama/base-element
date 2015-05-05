@@ -5,14 +5,16 @@ var Button = require('./fixtures/button.js')
 var Nested = require('./fixtures/nested.js')
 
 test('simple down and up', function (t) {
-  var expected = 'Testing ' + Math.random()
-  var button = new Button()
-  button.on('clicked', function (el) {
-    t.equal(el.innerHTML, expected, 'data was sent down and event came up')
-    tearDown(t.end)
+  setUp(function (fixture) {
+    var expected = 'Testing ' + Math.random()
+    var button = new Button(fixture)
+    button.on('clicked', function (el) {
+      t.equal(el.innerHTML, expected, 'data was sent down and event came up')
+      tearDown(t.end)
+    })
+    button.render(expected)
+    help.click(button.element)
   })
-  button.render(expected)
-  help.click(button.element)
 })
 
 test('renders nested elements', function (t) {
@@ -34,6 +36,6 @@ function setUp (cb) {
 
 function tearDown (cb) {
   var fixture = document.getElementById('fixture')
-  document.body.removeChild(fixture)
+  if (fixture) fixture.parentNode.removeChild(fixture)
   cb()
 }
