@@ -19,7 +19,7 @@ BaseElement.prototype.html = function () {
 
 BaseElement.prototype.super = function (vtree) {
   // Detect signature of the top most call to super()
-  if (this.hasOwnProperty('vtree') && this.hasOwnProperty('__events__')) {
+  if (this.hasOwnProperty('vtree') && this.hasOwnProperty('__events__') && this.hasOwnProperty('__appendTo__')) {
     return BaseElement.prototype.render.call(this, vtree)
   }
   return vtree
