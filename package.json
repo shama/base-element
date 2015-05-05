@@ -7,7 +7,8 @@
     "test": "standard && zuul --local 9966 -- test/index.js",
     "ci": "standard && zuul -- test/index.js",
     "start": "budo examples/standalone.js",
-    "build": "browserify index.js --standalone BaseElement -o dist/base-element.js"
+    "build": "browserify index.js --standalone BaseElement -o dist/base-element.js",
+    "publish": "npm run build"
   },
   "author": "Kyle Robinson Young <kyle@dontkry.com> (http://dontkry.com)",
   "license": "MIT",
@@ -16,7 +17,8 @@
     "url": "https://github.com/shama/base-element.git"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "dist/"
   ],
   "standard": {
     "ignore": [
