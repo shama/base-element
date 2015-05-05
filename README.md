@@ -30,8 +30,8 @@ Then build your elements:
 Bear.prototype.render = function (typeOfBear) {
   // Create a virtual DOM tree
   var vtree = this.html('div.bear', ['Im a ' + typeOfBear + '!'])
-  // Call the rendered() render method with your vtree
-  return this.rendered(vtree)
+  // Call afterRender with your vtree when returning your vtree
+  return this.afterRender(vtree)
 }
 ```
 
@@ -57,7 +57,7 @@ Button.prototype = Object.create(BaseElement.prototype)
 Button.prototype.render = function (label) {
   var self = this
   // The "label" data is coming down
-  return this.rendered(this.html('button', {
+  return this.afterRender(this.html('button', {
     onclick: function (event) {
       // We send the "clicked" event up
       self.send('clicked', event.target)
@@ -111,13 +111,13 @@ Register an event listener for a given name:
 element.on('clicked', function (params) {})
 ```
 
-### `element.rendered([params])`
+### `element.afterRender([params])`
 This method needs to be called when returning a constructed virtual tree.
 
 ```js
 Button.prototype.render = function (data) {
   var tree = this.html('button')
-  return this.rendered(vtree)
+  return this.afterRender(vtree)
 }
 ```
 

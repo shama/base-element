@@ -26,5 +26,5 @@ List.prototype.render = function (items) {
     }
   }, ['add item'])))
 
-  return this.rendered(this.html('ul', items))
+  return this.afterRender(this.html('ul', items))
 }
