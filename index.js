@@ -11,6 +11,7 @@ function BaseElement (el) {
   this.element = null
   this.__appendTo__ = (typeof el === 'undefined' || el === null) ? document.body : el
   this.__events__ = Object.create(null)
+  this.__BaseElementSig__ = true
 }
 
 BaseElement.prototype.html = function () {
@@ -18,8 +19,8 @@ BaseElement.prototype.html = function () {
 }
 
 BaseElement.prototype.afterRender = function (vtree) {
-  // Detect signature of the top most call to super()
-  if (this.hasOwnProperty('vtree') && this.hasOwnProperty('__events__') && this.hasOwnProperty('__appendTo__')) {
+  // Detect signature of the top most call
+  if (this.hasOwnProperty('__BaseElementSig__')) {
     return BaseElement.prototype.render.call(this, vtree)
   }
   return vtree
