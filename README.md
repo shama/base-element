@@ -118,7 +118,8 @@ function EmailInput (el) {
 
   // When we receive a "changed" event from InputBox, handle it here
   this.on('changed', function (text) {
-    /* Perform some email validation on text here, then render() if we need an update */
+    /* Perform some email validation on text here,
+       then render() if we need an update */
   })
 }
 EmailInput.prototype = Object.create(InputBox.prototype)
