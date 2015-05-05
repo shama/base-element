@@ -4,8 +4,8 @@
   "description": "An element authoring library for creating standalone and performant elements.",
   "main": "index.js",
   "scripts": {
-    "test": "standard",
-    "ci": "zuul --local 9966 -- test/index.js",
+    "test": "standard && zuul --local 9966 -- test/index.js",
+    "ci": "standard && zuul -- test/index.js",
     "start": "budo examples/standalone.js",
     "build": "browserify index.js --standalone BaseElement -o dist/base-element.js"
   },

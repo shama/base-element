@@ -6,4 +6,10 @@ before_install:
 - npm install npm -g
 before_script:
 - npm install
-script: npm run travis-test
+script: npm run ci
+addons:
+  sauce_connect: true
+env:
+  global:
+    - secure: hluRrXiBDo5jS+H6vp6LqFpuBOoM4E+G7knBYv8VoZ3C48sJsBpDFtKzfLBRBjwCS8+yrHlQT1I6l+1ESGwBZaSD7snn3rX+m7tv1FEoB/hlGLXCpGQAdRXVM9RmSbMf4MvaG4VQIIZzGIsu8zkv3AiD9lg5tb9/IQ+OgeKOZ04=
+    - secure: Oyo6tyhBv5xaKYmHdVboMO4TL1Wvb5jZ3kyA7vXndyA8aZBqFqSh9PRuu9JDXNK+MPvvYyZLjSB3xiXQAAmY01W4f4dRiKmdBapr+hVAWUtAHcxJIFYpLnUcxPgin8ZvkIEBSRSEVyTfJZEp3Lcrf0DLfiGXK5uRqTdI3DNwYUM=
