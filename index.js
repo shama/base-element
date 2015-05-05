@@ -11,16 +11,18 @@ function BaseElement (el) {
   this.element = null
   this.__appendTo__ = (typeof el === 'undefined' || el === null) ? document.body : el
   this.__events__ = Object.create(null)
-  // Decorate _name to methods for super()
-  for (var method in this) {
-    if (typeof this[method] === 'function') {
-      this[method]._name = method
-    }
-  }
 }
 
 BaseElement.prototype.html = function () {
   return h.apply(this, arguments)
+}
+
+BaseElement.prototype.super = function (vtree) {
+  // Detect signature of the top most call to super()
+  if (this.hasOwnProperty('vtree') && this.hasOwnProperty('__events__')) {
+    return BaseElement.prototype.render.call(this, vtree)
+  }
+  return vtree
 }
 
 BaseElement.prototype.render = function (vtree) {
@@ -53,21 +55,3 @@ BaseElement.prototype.on = function (name, cb) {
   if (!Array.isArray(this.__events__[name])) this.__events__[name] = []
   this.__events__[name].push(cb)
 }
-
-// Ability to call super() on methods
-Object.defineProperty(BaseElement.prototype, 'super', {
-  get: function get () {
-    var name = get.caller._name
-    var found = this[name] === get.caller
-    var proto = this
-    while (proto = Object.getPrototypeOf(proto)) { // eslint-disable-line
-      if (!proto[name]) {
-        break
-      } else if (proto[name] === get.caller) {
-        found = true
-      } else if (found) {
-        return proto[name]
-      }
-    }
-  }
-})
