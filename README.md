@@ -17,6 +17,7 @@ View [this example List element](https://github.com/shama/base-element/blob/mast
 Or other examples:
 * [with ES6](https://github.com/shama/base-element/blob/master/examples/es6.js)
 * [nested architecture](https://github.com/shama/base-element/blob/master/examples/nesting.js)
+* [server side rendering](https://github.com/shama/base-element/blob/master/examples/server-side.js)
 
 ## example usage
 Create a generic JavaScript "class" that inherits BaseElement:
