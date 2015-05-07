@@ -3,6 +3,9 @@ var List = require('./list.js')
 // Data for the list
 var data = ['one', 'two', 'three']
 
+// Clear out any staticly rendered html (if this script is being served by server-side.js)
+document.body.innerHTML = ''
+
 // Create a list
 var list = new List()
 list.render(data)
