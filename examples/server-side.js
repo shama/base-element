@@ -20,10 +20,10 @@ console.log('Server running at http://localhost:1337/')
 function index (res) {
   res.writeHead(200, {'Content-Type': 'text/html'})
 
-  // Data for the list
-  var data = ['one', 'two', 'three']
+  // Initial data for the list
+  var data = ['This is', 'the initial', 'content']
 
-  // Create/render a list
+  // Create/render the list
   var list = new List()
   list.render(data)
 
