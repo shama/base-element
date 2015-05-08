@@ -20,3 +20,8 @@ list.on('added', function () {
   data.push(String(Math.random() * 9999))
   list.render(data)
 })
+
+var style = document.createElement('style')
+style.innerHTML = list.css()
+console.log(style.innerHTML)
+document.head.appendChild(style)

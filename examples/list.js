@@ -28,3 +28,26 @@ List.prototype.render = function (items) {
 
   return this.afterRender(this.html('ul', items))
 }
+
+// Localized CSS can be returned with this.attachCSS()
+List.prototype.css = function () {
+  // Can be a string, brfs a file, or css preprocessor
+  return this.attachCSS(`
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    ul li {
+      list-style: none;
+    }
+    ul li:hover {
+      background-color: #ddd;
+    }
+    li:first-child {
+      padding: 1em;
+    }
+    button {
+      border: 1px solid #ddd;
+    }
+  `)
+}
