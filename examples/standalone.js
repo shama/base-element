@@ -22,8 +22,6 @@ list.on('added', function () {
   list.render(data)
 })
 
-
-
 // WIP: CSS should be written out to a separate file or nonce'd
 // this part is just for testing and will be removed
 var style = document.createElement('style')

@@ -92,5 +92,4 @@ function prefixSelector (rules, vtree) {
     // TODO: Detect nested rules and recurse
     return rule
   })
-  //return rules
 }
