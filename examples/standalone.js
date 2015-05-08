@@ -8,6 +8,7 @@ document.body.innerHTML = ''
 
 // Create a list
 var list = new List()
+list.className = 'my-list'
 list.render(data)
 
 // When item clicked

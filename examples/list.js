@@ -4,6 +4,7 @@ var BaseElement = require('../index.js')
 
 function List (el) {
   BaseElement.call(this, el)
+  this.className = 'list'
 }
 List.prototype = Object.create(BaseElement.prototype)
 
@@ -26,28 +27,47 @@ List.prototype.render = function (items) {
     }
   }, ['add item'])))
 
-  return this.afterRender(this.html('ul', items))
+  return this.afterRender(this.html('ul', this, items))
 }
 
 // Localized CSS can be returned with this.attachCSS()
 List.prototype.css = function () {
-  // Can be a string, brfs a file, or css preprocessor
+  // Can be a string, brfs a style.css, or css preprocessor
   return this.attachCSS(`
-    ul {
-      margin: 0;
-      padding: 0;
-    }
-    ul li {
-      list-style: none;
-    }
-    ul li:hover {
-      background-color: #ddd;
-    }
-    li:first-child {
-      padding: 1em;
-    }
-    button {
-      border: 1px solid #ddd;
-    }
+  * {
+    font-family: Helvetica, sans-serif;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+    padding: .3em 0;
+  }
+  ul li:hover {
+    background-color: #eee;
+    transition: .5s;
+    padding-left: .5em;
+    cursor: pointer;
+  }
+  li:first-child {
+    padding: .3em;
+    border-bottom: 1px solid #333;
+    text-align: right;
+  }
+  button {
+    border: none;
+    padding: .3em .5em;
+    background-color: #00bcd4;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+  }
+  button:hover {
+    padding: .3em 1em;
+    transition: .5s;
+  }
   `)
 }
