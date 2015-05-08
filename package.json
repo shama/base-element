@@ -6,8 +6,9 @@
   "scripts": {
     "test": "standard && zuul --local 9966 -- test/index.js",
     "ci": "standard && zuul -- test/index.js",
-    "start": "budo examples/standalone.js",
+    "start": "budo app.js:bundle.js",
     "build": "browserify index.js --standalone BaseElement -o dist/base-element.js",
+    "ghpage": "browserify app.js -o bundle.js",
     "prepublish": "npm run build"
   },
   "author": "Kyle Robinson Young <kyle@dontkry.com> (http://dontkry.com)",
