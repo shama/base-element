@@ -186,7 +186,7 @@ and patching.
 
 ```js
 Button.prototype.render = function (data) {
-  var tree = this.html('button')
+  var vtree = this.html('button')
   return this.afterRender(vtree)
 }
 ```
