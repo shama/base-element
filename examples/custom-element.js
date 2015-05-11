@@ -11,7 +11,7 @@ var data = ['one', 'two', 'three']
 var CustomHTMLElement = createCustom().on('created', function () {
   var self = this
   // When the element is created, consume List's API
-  // Attaching to the element so it can be called via the element itself
+  // Attaching to the element so it can be called via the element itself, totally optional though
   self.list = new List(self)
   self.list.render(data)
   self.list.on('clicked', function (item) {
