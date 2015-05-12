@@ -44,6 +44,25 @@ Bear.prototype.render = function (typeOfBear) {
 }
 ```
 
+### Prefer just functions?
+If you don't like "classes" the API supports an alternative interface with just
+functions:
+
+```js
+var createElement = require('base-element')
+
+// Create an element on a parent
+var el = createElement(document.body)
+el.render(function () {
+  // Render a button upon clicked will alert
+  return this.html('button', {
+    onclick: function (e) {
+      window.alert(e.target.innerText + ' button was clicked')
+    }
+  }, 'click me')
+})
+```
+
 ### data down, events up
 DOMs work best (in the opinion of myself and many) when data goes down
 and event (or actions) go up.
