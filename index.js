@@ -28,6 +28,9 @@ BaseElement.prototype.afterRender = function (vtree) {
 }
 
 BaseElement.prototype.render = function (vtree) {
+  if (typeof vtree === 'function') {
+    vtree = vtree.call(this)
+  }
   // Top level vnode must have className for CSS
   // TODO: Check if were using CSS though
   if (!vtree.properties.className) {

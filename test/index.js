@@ -1,6 +1,7 @@
 var help = require('browser-test-helpers')()
 var test = require('tape')
 
+var createElement = require('../index.js')
 var Button = require('./fixtures/button.js')
 var Nested = require('./fixtures/nested.js')
 
@@ -23,6 +24,18 @@ test('renders nested elements', function (t) {
     var nested = new Nested(fixture)
     nested.render('test')
     t.equal(fixture.innerHTML, '<div class="top"><ul class="middle"><li class="bottom">test</li></ul></div>')
+    tearDown(t.end)
+  })
+})
+
+test('functional API', function (t) {
+  t.plan(1)
+  setUp(function (fixture) {
+    var el = createElement(fixture)
+    el.render(function () {
+      return this.html('.test', 'testing')
+    })
+    t.equal(fixture.innerHTML, '<div class="test">testing</div>')
     tearDown(t.end)
   })
 })
