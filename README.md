@@ -20,7 +20,8 @@ Or other examples:
 * [server side rendering](https://github.com/shama/base-element/blob/master/examples/server-side.js)
 
 ## example usage
-Create a generic JavaScript "class" that inherits BaseElement:
+You can construct your element API however you choose. A way that I prefer is
+by inheriting prototypes:
 
 ```js
 var BaseElement = require('base-element')
@@ -45,8 +46,7 @@ Bear.prototype.render = function (typeOfBear) {
 ```
 
 ### Prefer just functions?
-If you don't like "classes" the API supports an alternative interface with just
-functions:
+If you prefer just functions, an alternative interface is available:
 
 ```js
 var createElement = require('base-element')
@@ -55,7 +55,7 @@ var createElement = require('base-element')
 var el = createElement(document.body)
 el.render(function () {
   // Render a button upon clicked will alert
-  return this.html('button', {
+  return el.html('button', {
     onclick: function (e) {
       window.alert(e.target.innerText + ' button was clicked')
     }
@@ -110,7 +110,7 @@ Elements created using `base-element` are intended on being shared and extended
 by others. Each element should not require an additional library/framework to
 run it or be injected into it in order to be ran. Elements should be standalone.
 
-For example if I create an `input-box` element and published on npm:
+For example if you create an `input-box` element and published on npm:
 
 ```js
 var BaseElement = require('base-element')
@@ -132,8 +132,8 @@ InputBox.prototype.render = function (value) {
 }
 ```
 
-Now yourself or another user can either consume your `input-box` or extend it
-to add their own functionality on top of yours, such as `email-input`:
+Later yourself or another user can extend `input-box` to add functionality on
+top, such as `email-input`:
 
 ```js
 var InputBox = require('input-box')
