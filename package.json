@@ -1,6 +1,6 @@
 {
   "name": "base-element",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "An element authoring library for creating standalone and performant elements.",
   "main": "index.js",
   "scripts": {
