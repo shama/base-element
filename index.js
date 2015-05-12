@@ -8,7 +8,7 @@ var createElement = require('virtual-dom/create-element')
 var css = require('css')
 
 function BaseElement (el) {
-  if (!(this instanceof BaseElement)) return BaseElement(el)
+  if (!(this instanceof BaseElement)) return new BaseElement(el)
   this.vtree = null
   this.element = null
   this.__appendTo__ = (typeof el === 'undefined' || el === null) ? document.body : el
