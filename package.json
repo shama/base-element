@@ -33,6 +33,7 @@
     "browser"
   ],
   "devDependencies": {
+    "attach-css": "^1.0.0",
     "babelify": "^6.0.2",
     "browser-test-helpers": "^1.0.0",
     "browserify": "^10.0.0",
@@ -43,7 +44,6 @@
     "zuul": "^3.0.0"
   },
   "dependencies": {
-    "css": "^2.2.0",
     "global": "^4.3.0",
     "virtual-dom": "^2.0.1"
   }

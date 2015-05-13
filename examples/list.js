@@ -1,6 +1,7 @@
 module.exports = List
 
 var BaseElement = require('../index.js')
+var attachCSS = require('attach-css')
 
 function List (el) {
   BaseElement.call(this, el)
@@ -30,10 +31,10 @@ List.prototype.render = function (items) {
   return this.afterRender(this.html('ul', this, items))
 }
 
-// Localized CSS can be returned with this.attachCSS()
+// Localized CSS can be returned using attachCSS()
 List.prototype.css = function () {
   // Can be a string, brfs a style.css, or css preprocessor
-  return this.attachCSS(`
+  return attachCSS(`
   * {
     font-family: Helvetica, sans-serif;
   }
@@ -69,5 +70,5 @@ List.prototype.css = function () {
     padding: .3em 1em;
     transition: .5s;
   }
-  `)
+  `, this.vtree)
 }

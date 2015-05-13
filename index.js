@@ -5,7 +5,6 @@ var h = require('virtual-dom/h')
 var diff = require('virtual-dom/diff')
 var patch = require('virtual-dom/patch')
 var createElement = require('virtual-dom/create-element')
-var css = require('css')
 
 function BaseElement (el) {
   if (!(this instanceof BaseElement)) return new BaseElement(el)
@@ -64,35 +63,4 @@ BaseElement.prototype.send = function (name) {
 BaseElement.prototype.on = function (name, cb) {
   if (!Array.isArray(this.__events__[name])) this.__events__[name] = []
   this.__events__[name].push(cb)
-}
-
-BaseElement.prototype.attachCSS = function (src) {
-  var ast = css.parse(src)
-  prefixSelector(ast.stylesheet.rules, this.vtree)
-  return css.stringify(ast)
-}
-
-function prefixSelector (rules, vtree) {
-  var rootClass = vtree.properties.className
-  if (!rootClass) throw new Error('The top level VirtualNode must have a class name')
-  rootClass = rootClass.split(' ')[0]
-
-  var rootTag = vtree.tagName.toLowerCase()
-  var rootId = vtree.properties.id
-
-  rules = rules.map(function (rule) {
-    rule.selectors = rule.selectors.map(function (selector) {
-      var parts = selector.split(' ')
-      if (parts[0].toLowerCase() === rootTag) {
-        selector = parts[0] + '.' + rootClass
-        if (parts.length > 1) selector += ' ' + parts.slice(1).join(' ')
-        return selector
-      } else if (parts[0] === rootId) {
-        return selector
-      }
-      return '.' + rootClass + ' ' + selector
-    })
-    // TODO: Detect nested rules and recurse
-    return rule
-  })
 }
