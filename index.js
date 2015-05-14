@@ -50,6 +50,12 @@ BaseElement.prototype.render = function (vtree) {
   return this.vtree
 }
 
+BaseElement.prototype.toString = function () {
+  var args = Array.prototype.slice.call(arguments, 1)
+  if (!this.element) this.render.apply(this, args)
+  return this.element.toString()
+}
+
 BaseElement.prototype.send = function (name) {
   var found = this.__events__[name]
   if (!found) return this
