@@ -8,11 +8,17 @@ var createElement = require('virtual-dom/create-element')
 
 function BaseElement (el) {
   if (!(this instanceof BaseElement)) return new BaseElement(el)
+  var self = this
   this.vtree = null
   this.element = null
   this.__appendTo__ = (typeof el === 'undefined' || el === null) ? document.body : el
   this.__events__ = Object.create(null)
   this.__BaseElementSig__ = 'be-' + Date.now()
+  this.__onload__ = new Onload(function () {
+    var args = Array.prototype.slice.call(arguments)
+    args.unshift('load')
+    self.send.apply(self, args)
+  })
 }
 
 BaseElement.prototype.html = function () {
@@ -63,4 +69,14 @@ BaseElement.prototype.send = function (name) {
 BaseElement.prototype.on = function (name, cb) {
   if (!Array.isArray(this.__events__[name])) this.__events__[name] = []
   this.__events__[name].push(cb)
+}
+
+function Onload (cb) {
+  this.cb = cb
+}
+Onload.prototype.hook = function (node) {
+  var self = this
+  setTimeout(function () {
+    self.cb(node)
+  }, 10)
 }
