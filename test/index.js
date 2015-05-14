@@ -74,6 +74,15 @@ test('unload event fired', function (t) {
   })
 })
 
+test('toString', function (t) {
+  t.plan(1)
+  setUp(function (fixture) {
+    var nested = new Nested(fixture)
+    t.equal(nested.toString('test'), '<div class="top"><ul class="middle"><li class="bottom">test</li></ul></div>')
+    tearDown(fixture, t.end)
+  })
+})
+
 function setUp (cb) {
   var fixture = document.createElement('div')
   fixture.setAttribute('id', 'fixture' + Date.now())

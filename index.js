@@ -1,6 +1,7 @@
 module.exports = BaseElement
 
 var document = require('global/document')
+var serialize = require('min-document/serialize')
 var h = require('virtual-dom/h')
 var diff = require('virtual-dom/diff')
 var patch = require('virtual-dom/patch')
@@ -47,13 +48,16 @@ BaseElement.prototype.render = function (vtree) {
     this.element = patch(this.element, patches)
     this.vtree = vtree
   }
-  delete this.element['toString']
   return this.vtree
 }
 
 BaseElement.prototype.toString = function () {
   this.render.apply(this, arguments)
-  return this.element.toString()
+  try {
+    return serialize(this.element)
+  } catch (err) {
+    return this.element.outerHTML
+  }
 }
 
 BaseElement.prototype.send = function (name) {
