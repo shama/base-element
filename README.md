@@ -227,5 +227,26 @@ The root DOM node the virtual tree resides on.
 ### `element.vtree`
 The current virtual DOM tree of the base element.
 
+### default events
+`load` and `unload` events will be sent by default if your top level element
+registers `this` as it's properties:
+
+```js
+var BaseElement = require('base-element')
+function Button(el) {
+  BaseElement.call(this, el)
+  this.on('load', function (node) {
+    console.log(node + ' has loaded!')
+  })
+  this.on('unload', function (node) {
+    console.log(node + ' has unloaded!')
+  })
+}
+Button.prototype.render = function (data) {
+  // The top level element is provided with `this`, events will be fired
+  return this.afterRender(this.html('button', this, 'click me'))
+}
+```
+
 # license
 (c) 2015 Kyle Robinson Young. MIT License
