@@ -47,12 +47,12 @@ BaseElement.prototype.render = function (vtree) {
     this.element = patch(this.element, patches)
     this.vtree = vtree
   }
+  delete this.element['toString']
   return this.vtree
 }
 
 BaseElement.prototype.toString = function () {
-  var args = Array.prototype.slice.call(arguments, 1)
-  if (!this.element) this.render.apply(this, args)
+  this.render.apply(this, arguments)
   return this.element.toString()
 }
 
