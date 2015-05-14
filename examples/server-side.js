@@ -28,7 +28,7 @@ function index (res) {
   list.render(data)
 
   // Convert the list element to static HTML and send out
-  var html = list.element.toString()
+  var html = list.element.toString(data)
 
   // Serve up our template
   var template = `<html><body>
