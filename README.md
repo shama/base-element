@@ -221,6 +221,10 @@ var vtree = h('div', 'Testing')
 var vtree = this.html('div', 'Testing')
 ```
 
+### `element.toString([data...])`
+For rendering your element as a string of HTML. `data` is any initial data
+passed to your `render` function.
+
 ### `element.element`
 The root DOM node the virtual tree resides on.
 
