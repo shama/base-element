@@ -38,7 +38,7 @@ BaseElement.prototype.render = function (vtree) {
   }
   // Top level vnode must have className for CSS
   // TODO: Check if were using CSS though
-  if (!vtree.properties.className) {
+  if (vtree && vtree.properties && !vtree.properties.className) {
     vtree.properties.className = this.__BaseElementSig__
   }
   if (!this.vtree) {
