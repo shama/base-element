@@ -11,7 +11,7 @@ function BaseElement (el) {
   if (!(this instanceof BaseElement)) return new BaseElement(el)
   this.vtree = null
   this.element = null
-  this.__appendTo__ = (typeof el === 'undefined' || el === null) ? document.body : el
+  this.__appendTo__ = el == null ? document.body : el
   this.__events__ = Object.create(null)
   this.__BaseElementSig__ = 'be-' + Date.now()
   this.__onload__ = new Onload(this.send.bind(this))
