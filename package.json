@@ -4,7 +4,7 @@
   "description": "An element authoring library for creating standalone and performant elements.",
   "main": "index.js",
   "scripts": {
-    "test": "standard --format && node test/server.js && zuul --local 9966 -- test/index.js",
+    "test": "standard && node test/server.js && zuul --local 9966 -- test/index.js",
     "ci": "standard && node test/server.js && zuul -- test/index.js",
     "start": "budo examples/standalone.js",
     "build": "browserify index.js --standalone BaseElement -o dist/base-element.js",
@@ -33,13 +33,13 @@
     "browser"
   ],
   "devDependencies": {
-    "attach-css": "^1.0.0",
+    "attach-css": "^1.1.0",
     "babelify": "^6.0.2",
     "browser-test-helpers": "^1.0.0",
     "browserify": "^10.0.0",
     "budo": "^4.0.0",
-    "standard": "^3.7.2",
-    "tap-spec": "^3.0.0",
+    "standard": "^4.0.0",
+    "tap-spec": "^4.0.0",
     "tape": "^4.0.0",
     "zuul": "^3.0.0"
   },
