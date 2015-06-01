@@ -55,7 +55,7 @@ test('load event fired', function (t) {
 test('unload event fired', function (t) {
   t.plan(1)
   setUp(function (fixture) {
-    var button = new Button(false)
+    var button = new Button()
     button.on('unload', function (node) {
       t.equal(node.innerHTML, 'Test')
       tearDown(fixture, t.end)
