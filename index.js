@@ -1,6 +1,5 @@
 module.exports = BaseElement
 
-var document = require('global/document')
 var serialize = require('min-document/serialize')
 var h = require('virtual-dom/h')
 var diff = require('virtual-dom/diff')
@@ -11,7 +10,7 @@ function BaseElement (el) {
   if (!(this instanceof BaseElement)) return new BaseElement(el)
   this.vtree = null
   this.element = null
-  this.__appendTo__ = el == null ? document.body : el
+  this.__appendTo__ = el
   this.__events__ = Object.create(null)
   this.__BaseElementSig__ = 'be-' + Date.now()
   this.__onload__ = new Onload(this.send.bind(this))
@@ -40,7 +39,7 @@ BaseElement.prototype.render = function (vtree) {
   if (!this.vtree) {
     this.vtree = vtree
     this.element = createElement(this.vtree)
-    if (this.__appendTo__ !== false) {
+    if (this.__appendTo__) {
       this.__appendTo__.appendChild(this.element)
     }
   } else {

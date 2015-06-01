@@ -44,7 +44,6 @@
     "zuul": "^3.0.0"
   },
   "dependencies": {
-    "global": "^4.3.0",
     "min-document": "^2.14.1",
     "virtual-dom": "^2.0.1"
   }
