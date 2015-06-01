@@ -182,11 +182,10 @@ can be made.
 ## api
 
 ### `var element = new BaseElement([attachTo])`
-`attachTo` is a DOM element you want to append to. Defaults to `document.body`.
+`attachTo` is a DOM element you want to append to such as `document.body`
 
-If you pass in `false` then the element will not automatically append itself to
-a parent node. This is useful if you plan on handling the rendering of the
-virtual tree on your own.
+By default, the element will not attach itself to a parent node. This is useful
+for handling the rendering on your own.
 
 ### `element.send(name[, params...])`
 Sends an event up with a given `name` and `params`.
