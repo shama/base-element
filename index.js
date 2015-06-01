@@ -61,12 +61,13 @@ BaseElement.prototype.send = function (name) {
   var args = Array.prototype.slice.call(arguments, 1)
   for (var i = 0; i < found.length; i++) {
     var fn = found[i]
-    if (typeof fn === 'function') fn.apply(this, args)
+    fn.apply(this, args)
   }
   return this
 }
 
 BaseElement.prototype.addEventListener = function (name, cb) {
+  if (typeof cb !== 'function') return
   if (!Array.isArray(this.__events__[name])) this.__events__[name] = []
   this.__events__[name].push(cb)
 }
