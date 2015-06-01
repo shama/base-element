@@ -44,6 +44,7 @@
     "zuul": "^3.0.0"
   },
   "dependencies": {
+    "isarray": "0.0.1",
     "vdom-to-html": "^2.1.1",
     "virtual-dom": "^2.0.1"
   }
