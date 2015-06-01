@@ -9,7 +9,7 @@ test('simple down and up', function (t) {
   setUp(function (fixture) {
     var expected = 'Testing ' + Math.random()
     var button = new Button(fixture)
-    button.on('clicked', function (el) {
+    button.addEventListener('clicked', function (el) {
       t.equal(el.innerHTML, expected, 'data was sent down and event came up')
       tearDown(fixture, t.end)
     })
@@ -44,7 +44,7 @@ test('load event fired', function (t) {
   t.plan(1)
   setUp(function (fixture) {
     var button = new Button(fixture)
-    button.on('load', function (node) {
+    button.addEventListener('load', function (node) {
       t.equal(node.innerHTML, 'Test')
       tearDown(fixture, t.end)
     })
@@ -56,7 +56,7 @@ test('unload event fired', function (t) {
   t.plan(1)
   setUp(function (fixture) {
     var button = new Button()
-    button.on('unload', function (node) {
+    button.addEventListener('unload', function (node) {
       t.equal(node.innerHTML, 'Test')
       tearDown(fixture, t.end)
     })

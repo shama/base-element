@@ -13,12 +13,12 @@ var data = ['one', 'two', 'three']
 var list = new List()
 
 // When item clicked
-list.on('clicked', function (item) {
+list.addEventListener('clicked', function (item) {
   window.alert('You clicked ' + item.innerHTML)
 })
 
 // When item added
-list.on('added', function () {
+list.addEventListener('added', function () {
   data.push(String(Math.random() * 9999))
   list.render(data)
 })

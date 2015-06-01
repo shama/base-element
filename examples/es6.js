@@ -6,7 +6,7 @@ class Slides extends BaseElement {
     // Create a property for the actively shown slide
     this.activeIndex = 0
     // When a slide is selected, set that as the activeIndex then render
-    this.on('select', idx => {
+    this.addEventListener('select', idx => {
       this.activeIndex = idx
       this.render(this.data)
     })

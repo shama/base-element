@@ -14,10 +14,10 @@ var CustomHTMLElement = createCustom().on('created', function () {
   // Attaching to the element so it can be called via the element itself, totally optional though
   self.list = new List(self)
   self.list.render(data)
-  self.list.on('clicked', function (item) {
+  self.list.addEventListener('clicked', function (item) {
     window.alert('You clicked ' + item.innerHTML)
   })
-  self.list.on('added', function () {
+  self.list.addEventListener('added', function () {
     data.push(String(Math.random() * 9999))
     self.list.render(data)
   })

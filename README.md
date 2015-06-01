@@ -100,7 +100,7 @@ changes to a random number:
 
 ```js
 var button = require('your-button')()
-button.on('clicked', function (node) {
+button.addEventListener('clicked', function (node) {
   button.render('button label ' + Math.random())
 })
 ```
@@ -141,7 +141,7 @@ function EmailInput (el) {
   InputBox.call(this, el)
 
   // When we receive a "changed" event from InputBox, handle it here
-  this.on('changed', function (text) {
+  this.addEventListener('changed', function (text) {
     /* Perform some email validation on text here,
        then render() if we need an update */
   })
@@ -191,11 +191,11 @@ virtual tree on your own.
 ### `element.send(name[, params...])`
 Sends an event up with a given `name` and `params`.
 
-### `element.on(name, function)`
+### `element.addEventListener(name, function)`
 Register an event listener for a given name:
 
 ```js
-element.on('clicked', function (params) {})
+element.addEventListener('clicked', function (params) {})
 ```
 
 ### `element.afterRender([params...])`
@@ -239,10 +239,10 @@ registers `this` as it's properties:
 var BaseElement = require('base-element')
 function Button(el) {
   BaseElement.call(this, el)
-  this.on('load', function (node) {
+  this.addEventListener('load', function (node) {
     console.log(node + ' has loaded!')
   })
-  this.on('unload', function (node) {
+  this.addEventListener('unload', function (node) {
     console.log(node + ' has unloaded!')
   })
 }

@@ -66,7 +66,7 @@ BaseElement.prototype.send = function (name) {
   return this
 }
 
-BaseElement.prototype.on = function (name, cb) {
+BaseElement.prototype.addEventListener = function (name, cb) {
   if (!Array.isArray(this.__events__[name])) this.__events__[name] = []
   this.__events__[name].push(cb)
 }
