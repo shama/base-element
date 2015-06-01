@@ -44,7 +44,7 @@
     "zuul": "^3.0.0"
   },
   "dependencies": {
-    "vdom-to-html": "^2.1.0",
+    "vdom-to-html": "^2.1.1",
     "virtual-dom": "^2.0.1"
   }
 }
