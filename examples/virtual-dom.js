@@ -10,7 +10,7 @@ var data = ['one', 'two', 'three']
 
 // Create a list that does not automatically appendTo
 // as we'll be handling that with virtual-dom
-var list = new List(false)
+var list = new List()
 
 // When item clicked
 list.on('clicked', function (item) {

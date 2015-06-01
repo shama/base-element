@@ -58,7 +58,7 @@ class Slides extends BaseElement {
 }
 
 // The end user API from here on down
-let slides = new Slides()
+let slides = new Slides(document.body)
 slides.render([
   { name: 'intro', content: 'Intro...' },
   { name: 'examples', content: 'Examples...' },

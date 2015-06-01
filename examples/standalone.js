@@ -7,7 +7,7 @@ var data = ['one', 'two', 'three']
 document.body.innerHTML = ''
 
 // Create a list
-var list = new List()
+var list = new List(document.body)
 list.className = 'my-list'
 list.render(data)
 
