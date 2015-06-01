@@ -1,10 +1,10 @@
 module.exports = BaseElement
 
-var serialize = require('min-document/serialize')
 var h = require('virtual-dom/h')
 var diff = require('virtual-dom/diff')
 var patch = require('virtual-dom/patch')
 var createElement = require('virtual-dom/create-element')
+var toHTML = require('vdom-to-html')
 
 function BaseElement (el) {
   if (!(this instanceof BaseElement)) return new BaseElement(el)
@@ -52,11 +52,7 @@ BaseElement.prototype.render = function (vtree) {
 
 BaseElement.prototype.toString = function () {
   this.render.apply(this, arguments)
-  try {
-    return serialize(this.element)
-  } catch (err) {
-    return this.element.outerHTML
-  }
+  return toHTML(this.vtree)
 }
 
 BaseElement.prototype.send = function (name) {
