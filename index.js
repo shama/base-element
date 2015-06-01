@@ -5,6 +5,7 @@ var diff = require('virtual-dom/diff')
 var patch = require('virtual-dom/patch')
 var createElement = require('virtual-dom/create-element')
 var toHTML = require('vdom-to-html')
+var isArray = require('isarray')
 
 function BaseElement (el) {
   if (!(this instanceof BaseElement)) return new BaseElement(el)
@@ -68,7 +69,7 @@ BaseElement.prototype.send = function (name) {
 
 BaseElement.prototype.addEventListener = function (name, cb) {
   if (typeof cb !== 'function') return
-  if (!Array.isArray(this.__events__[name])) this.__events__[name] = []
+  if (!isArray(this.__events__[name])) this.__events__[name] = []
   this.__events__[name].push(cb)
 }
 
