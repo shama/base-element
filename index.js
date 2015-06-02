@@ -5,10 +5,12 @@ var diff = require('virtual-dom/diff')
 var patch = require('virtual-dom/patch')
 var createElement = require('virtual-dom/create-element')
 var toHTML = require('vdom-to-html')
-var isArray = require('isarray')
+var EventTarget = require('dom-event-target')
+var inherits = require('inherits')
 
 function BaseElement (el) {
   if (!(this instanceof BaseElement)) return new BaseElement(el)
+  EventTarget.call(this)
   this.vtree = null
   this.element = null
   this.__appendTo__ = el
@@ -16,6 +18,7 @@ function BaseElement (el) {
   this.__BaseElementSig__ = 'be-' + Date.now()
   this.__onload__ = new Onload(this.send.bind(this))
 }
+inherits(BaseElement, EventTarget)
 
 BaseElement.prototype.html = function BaseElement_html () {
   return h.apply(this, arguments)
@@ -54,23 +57,6 @@ BaseElement.prototype.render = function BaseElement_render (vtree) {
 BaseElement.prototype.toString = function BaseElement_toString () {
   this.render.apply(this, arguments)
   return toHTML(this.vtree)
-}
-
-BaseElement.prototype.send = function BaseElement_send (name) {
-  var found = this.__events__[name]
-  if (!found) return this
-  var args = Array.prototype.slice.call(arguments, 1)
-  for (var i = 0; i < found.length; i++) {
-    var fn = found[i]
-    fn.apply(this, args)
-  }
-  return this
-}
-
-BaseElement.prototype.addEventListener = function BaseElement_addEventListener (name, cb) {
-  if (typeof cb !== 'function') return
-  if (!isArray(this.__events__[name])) this.__events__[name] = []
-  this.__events__[name].push(cb)
 }
 
 function Onload (cb) {

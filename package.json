@@ -44,6 +44,8 @@
     "zuul": "^3.0.0"
   },
   "dependencies": {
+    "dom-event-target": "~1.0.0",
+    "inherits": "~2.0.1",
     "isarray": "0.0.1",
     "vdom-to-html": "^2.1.1",
     "virtual-dom": "^2.0.1"
