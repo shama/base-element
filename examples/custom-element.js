@@ -1,6 +1,6 @@
 // Example using with: https://github.com/requireio/custom-element
 
-require('webcomponents.js')
+require('./webcomponent')
 
 var List = require('./list.js')
 var createCustom = require('custom-element')
