@@ -1,3 +1,6 @@
+// This example uses ./list.js (an element created with base-element)
+// in use with a React component: https://facebook.github.io/react/
+
 var List = require('./list.js')
 var React = require('react')
 

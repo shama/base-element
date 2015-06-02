@@ -1,3 +1,6 @@
+// This example uses ./list.js (an element created with base-element)
+// by itself :)
+
 var List = require('./list.js')
 
 // Data for the list

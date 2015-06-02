@@ -1,3 +1,6 @@
+// This example shows an example "complex" slideshow element in use with ES6
+// syntax care of babel: https://babeljs.io/
+
 import BaseElement from '../index.js'
 
 class Slides extends BaseElement {

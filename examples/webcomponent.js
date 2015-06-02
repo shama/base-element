@@ -1,4 +1,8 @@
 /*global HTMLElement:false*/
+
+// This example uses ./list.js (an element created with base-element)
+// in use with web components: http://webcomponents.org/
+
 var List = require('./list.js')
 
 var data = ['one', 'two', 'three']

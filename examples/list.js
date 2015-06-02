@@ -1,3 +1,5 @@
+// An example element that can gets used by all the other examples
+
 module.exports = List
 
 var BaseElement = require('../index.js')

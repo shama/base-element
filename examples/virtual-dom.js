@@ -1,3 +1,6 @@
+// This example uses ./list.js (an element created with base-element)
+// in use with virtual-dom: https://github.com/Matt-Esch/virtual-dom
+
 var List = require('./list.js')
 
 var h = require('virtual-dom/h')

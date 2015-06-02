@@ -1,5 +1,8 @@
 /*eslint-disable */
 
+// This example uses ./list.js (an element created with base-element)
+// in use with an Ember.js Component: http://emberjs.com/api/classes/Ember.Component.html
+
 var List = require('./list.js')
 
 var MyListComponent = Ember.Component.extend({
