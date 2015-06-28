@@ -8,6 +8,7 @@ An element authoring library for creating standalone and performant elements.
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/shama.svg)](https://saucelabs.com/u/shama)
 
 View [this example List element](https://github.com/shama/base-element/blob/master/examples/list.js) in use with:
+* [Angular](https://github.com/shama/base-element/blob/master/examples/angular.js)
 * [React](https://github.com/shama/base-element/blob/master/examples/react.js)
 * [Ember](https://github.com/shama/base-element/blob/master/examples/ember.js)
 * [Web Component](https://github.com/shama/base-element/blob/master/examples/webcomponent.js)
