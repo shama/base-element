@@ -14,7 +14,6 @@ function BaseElement (el) {
   this.vtree = null
   this.element = null
   this.__appendTo__ = el
-  this.__events__ = Object.create(null)
   this.__BaseElementSig__ = 'be-' + Date.now()
   this.__onload__ = new Onload(this.send.bind(this))
 }
