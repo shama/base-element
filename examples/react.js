@@ -6,6 +6,9 @@ var React = require('react')
 
 // Create a React component that wraps the List
 var XList = React.createClass({
+  propTypes: {
+    items: React.PropTypes.arrayOf(React.propTypes.string)
+  },
   componentDidMount: function () {
     var list = new List(React.findDOMNode(this))
     var data = this.props.items
