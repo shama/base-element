@@ -7,6 +7,7 @@ var createElement = require('virtual-dom/create-element')
 var toHTML = require('vdom-to-html')
 var EventTarget = require('dom-event-target')
 var inherits = require('inherits')
+var nextTick = require('next-tick')
 
 function BaseElement (el) {
   if (!(this instanceof BaseElement)) return new BaseElement(el)
@@ -63,13 +64,13 @@ function Onload (cb) {
 }
 Onload.prototype.hook = function BaseElement_hook (node) {
   var self = this
-  setTimeout(function BaseElement_hook_setTimeout () {
+  nextTick(function BaseElement_hook_nextTick () {
     self.cb('load', node)
-  }, 10)
+  })
 }
 Onload.prototype.unhook = function BaseElement_unhook (node) {
   var self = this
-  setTimeout(function BaseElement_unhook_setTimeout () {
+  nextTick(function BaseElement_unhook_nextTick () {
     self.cb('unload', node)
-  }, 10)
+  })
 }

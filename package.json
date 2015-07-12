@@ -47,6 +47,7 @@
     "dom-event-target": "~1.0.0",
     "inherits": "~2.0.1",
     "isarray": "0.0.1",
+    "next-tick": "~0.2.2",
     "vdom-to-html": "^2.1.1",
     "virtual-dom": "^2.0.1"
   }
