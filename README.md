@@ -252,5 +252,10 @@ Button.prototype.render = function (data) {
 }
 ```
 
+## similar projects
+
+* [vel](https://github.com/yoshuawuyts/vel)
+  create and render virtual-dom elements with ease
+
 # license
 (c) 2015 Kyle Robinson Young. MIT License
