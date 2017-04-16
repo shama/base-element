@@ -1,7 +1,7 @@
 // This example uses ./list.js (an element created with base-element)
 // in use with the library "custom-element": https://www.npmjs.com/package/custom-element
 
-require('webcomponents.js')
+require('./webcomponent')
 
 var List = require('./list.js')
 var createCustom = require('custom-element')
